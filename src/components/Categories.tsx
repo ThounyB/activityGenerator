@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import "./categories.css";
 import Suggestions from "./Suggestions";
-const categories = ["education", "social", "relaxation", "cooking"];
+const categories = [
+    { type: "education", iconUrl: "education.png" },
+    { type: "social", iconUrl: "education.png" },
+    { type: "relaxation", iconUrl: "education.png" },
+    { type: "cooking", iconUrl: "education.png" },
+];
 
 export interface Suggestion {
     activity: string;
@@ -73,15 +78,18 @@ function Categories() {
 
     return (
         <div className="categories">
-            <ul className="list">
-                {categories.map((category, idx) => {
+            <ul className="category-list">
+                {Object.values(categories).map((category, idx) => {
                     return (
                         <li key={idx}>
                             <button
-                                key={category}
-                                onClick={() => changeCategory(category)}
+                                style={{
+                                    backgroundImage: 'url("/education.png")',
+                                }}
+                                onClick={() => changeCategory(category.type)}
                             >
-                                {category}
+                                {category.type}
+                                <i className="fa-solid fa-couch"></i>
                             </button>
                         </li>
                     );

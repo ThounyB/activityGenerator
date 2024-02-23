@@ -4,4 +4,13 @@ div {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    background-color: #f6f6f6; /* Light gray background */
+    background-image: linear-gradient(
+        135deg,
+        #00bcd4,
+        #3f51b5
+    ); /* Gradient background */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif; /* Use a modern font */
 }
