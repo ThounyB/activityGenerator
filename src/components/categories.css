@@ -1,0 +1,14 @@
+.categories {
+    width: 100%;
+
+    .list {
+        list-style: none;
+        padding: 0 2rem;
+        display: flex;
+    }
+
+    button {
+        width: 100px;
+        cursor: pointer;
+    }
+}
