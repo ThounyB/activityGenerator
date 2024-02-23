@@ -12,7 +12,7 @@ const Suggestions: React.FC<Props> = (props) => {
         <div className="suggestions">
             <ul className="suggestion-list">
                 {suggestions.map((suggestion) => (
-                    <li>
+                    <li key={suggestion.key}>
                         {suggestion.activity}{" "}
                         {suggestion.link ? (
                             <a className="link" href={`${suggestion.link}`}>

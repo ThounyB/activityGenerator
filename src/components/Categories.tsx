@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./categories.css";
 import Suggestions from "./Suggestions";
+
 const categories = [
     { type: "education", faIcon: "fa-user-graduate" },
     { type: "social", faIcon: "fa-user-group" },
@@ -80,6 +81,7 @@ function Categories() {
     }, [selectedCategory]);
 
     function changeCategory(category: string) {
+        setSelectedCategory(null);
         setSelectedCategory(category);
         setLoading(false);
     }
