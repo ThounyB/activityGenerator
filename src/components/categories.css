@@ -2,6 +2,11 @@
     display: flex;
     align-items: center;
     color: white;
+    margin-top: 2rem;
+}
+
+.title {
+    text-align: center;
 }
 .category-list {
     list-style: none;
@@ -14,23 +19,31 @@
 }
 
 .category-list button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     padding: 10px 20px;
-    width: 100px;
+    width: 150px;
     cursor: pointer;
     text-transform: capitalize;
     border: none;
     color: #ffffff;
-    background-color: #3f51b5; /* Button background color */
-    padding: 10px 20px; /* Add padding to buttons */
-    border: none; /* Remove button border */
-    border-radius: 5px; /* Rounded corners for buttons */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: #3f51b5;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: #0056b3 0 5px 12px 2px;
+}
 
-    /* Set background position and size */
-    background-size: 30px; /* Adjust size as needed */
-    background-position: 5px center; /* Adjust position as needed */
-    background-repeat: no-repeat;
-    fill: #333;
+.faIcon {
+    color: rgb(230, 230, 129);
+    font-size: 1.5rem;
+}
+
+.fa-heart {
+    color: rgb(237, 51, 51);
 }
 
 .category-list button:hover {

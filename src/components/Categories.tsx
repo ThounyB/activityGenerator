@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import "./categories.css";
 import Suggestions from "./Suggestions";
 const categories = [
-    { type: "education", iconUrl: "education.png" },
-    { type: "social", iconUrl: "education.png" },
-    { type: "relaxation", iconUrl: "education.png" },
-    { type: "cooking", iconUrl: "education.png" },
+    { type: "education", faIcon: "fa-user-graduate" },
+    { type: "social", faIcon: "fa-user-group" },
+    { type: "relaxation", faIcon: "fa-heart" },
+    { type: "cooking", faIcon: "fa-utensils" },
 ];
 
 export interface Suggestion {
@@ -78,18 +78,19 @@ function Categories() {
 
     return (
         <div className="categories">
+            <h1 className="title">Let me help you to find activity</h1>
             <ul className="category-list">
                 {Object.values(categories).map((category, idx) => {
                     return (
                         <li key={idx}>
                             <button
-                                style={{
-                                    backgroundImage: 'url("/education.png")',
-                                }}
                                 onClick={() => changeCategory(category.type)}
+                                title={`Activity type ${category.type}`}
                             >
                                 {category.type}
-                                <i className="fa-solid fa-couch"></i>
+                                <i
+                                    className={`fa-solid ${category.faIcon} faIcon`}
+                                ></i>
                             </button>
                         </li>
                     );

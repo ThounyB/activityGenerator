@@ -12,5 +12,5 @@ div {
     ); /* Gradient background */
     background-size: cover; /* Cover the entire viewport */
     background-repeat: no-repeat;
-    font-family: "Roboto", sans-serif; /* Use a modern font */
+    font-family: "Roboto", sans-serif;
 }
