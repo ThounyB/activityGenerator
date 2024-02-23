@@ -1,0 +1,59 @@
+.main {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.title {
+    text-align: center;
+}
+.category-list {
+    list-style: none;
+    padding: 0 2rem;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.category-list button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 20px;
+    width: 150px;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: none;
+    color: #ffffff;
+    background-color: #3f51b5;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: #0056b3 0 5px 12px 2px;
+}
+
+.faIcon {
+    color: rgb(230, 230, 129);
+    font-size: 1.5rem;
+}
+
+.fa-heart {
+    color: rgb(237, 51, 51);
+}
+
+.category-list button:hover {
+    background-color: #0056b3;
+}
+
+@media only screen and (min-width: 1280px) {
+    .category-list {
+        padding: 0.5rem 0.2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+}
