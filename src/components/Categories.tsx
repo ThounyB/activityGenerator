@@ -13,6 +13,8 @@ export interface Suggestion {
     type: string;
     price: string;
     key: string;
+    participants: string;
+    link: string;
 }
 
 function filterDuplicates(suggestions: Suggestion[]): Suggestion[] {
@@ -27,8 +29,8 @@ function Categories() {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(
         null
     );
-
     const [allSuggestions, setAllSuggestions] = useState<Suggestion[]>([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (!selectedCategory) {
@@ -38,22 +40,25 @@ function Categories() {
         const fetchData = async () => {
             const fetchCount = [1, 2, 3];
             let result: Suggestion;
-            let suggestions: Suggestion[] = [];
+
+            setLoading(true);
+
             try {
                 const fetchPromises = fetchCount.map(async () => {
                     const response = await fetch(
                         `https://www.boredapi.com/api/activity?type=${selectedCategory}`
                     );
 
-                    result = await response.json();
+                    const result = await response.json();
 
                     return result;
                 });
 
-                suggestions = await Promise.all(fetchPromises);
+                const suggestions = await Promise.all(fetchPromises);
 
                 const filtered = filterDuplicates(suggestions);
 
+                // When there is duplicate suggestion, fetch a new one
                 if (filtered.length < 3) {
                     const response = await fetch(
                         `https://www.boredapi.com/api/activity?type=${selectedCategory}`
@@ -64,8 +69,10 @@ function Categories() {
                     filtered.push(result);
                 }
                 setAllSuggestions(filtered);
+                setLoading(false);
             } catch (error) {
                 console.error(error);
+                setLoading(false);
             }
         };
 
@@ -74,10 +81,11 @@ function Categories() {
 
     function changeCategory(category: string) {
         setSelectedCategory(category);
+        setLoading(false);
     }
 
     return (
-        <div className="categories">
+        <div className="main">
             <h1 className="title">Let me help you to find activity</h1>
             <ul className="category-list">
                 {Object.values(categories).map((category, idx) => {
@@ -96,8 +104,15 @@ function Categories() {
                     );
                 })}
             </ul>
-
-            <Suggestions suggestions={allSuggestions} />
+            <div className="lower">
+                {allSuggestions.length > 0 ? (
+                    <Suggestions suggestions={allSuggestions} />
+                ) : loading ? (
+                    <i className="fa-solid fa-spinner spinner"></i>
+                ) : (
+                    <i className="fa-solid fa-sun spinner sun"></i>
+                )}
+            </div>
         </div>
     );
 }

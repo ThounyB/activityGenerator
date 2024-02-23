@@ -1,7 +1,6 @@
-.categories {
+.main {
     display: flex;
     align-items: center;
-    color: white;
     margin-top: 2rem;
 }
 
@@ -50,15 +49,11 @@
     background-color: #0056b3;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1280px) {
     .category-list {
         padding: 0.5rem 0.2rem;
-        width: 100px;
         cursor: pointer;
         display: flex;
         justify-content: center;
-    }
-
-    .category-list button {
     }
 }

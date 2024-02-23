@@ -9,11 +9,22 @@ interface Props {
 const Suggestions: React.FC<Props> = (props) => {
     const { suggestions } = props;
     return (
-        <ul className="suggestion-list">
-            {suggestions.map((lu) => (
-                <li>{lu.activity}</li>
-            ))}
-        </ul>
+        <div className="suggestions">
+            <ul className="suggestion-list">
+                {suggestions.map((suggestion) => (
+                    <li>
+                        {suggestion.activity}{" "}
+                        {suggestion.link ? (
+                            <a className="link" href={`${suggestion.link}`}>
+                                link
+                            </a>
+                        ) : (
+                            ""
+                        )}
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 
